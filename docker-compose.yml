@@ -1,0 +1,14 @@
+services:
+  civ6_draft_bot:
+    image: civ6-drafter:v0.1.0
+    container_name: civ6_draft_bot
+    restart: unless-stopped
+    env_file:
+      - vars.env
+    volumes:
+      - ./configs:/app/configs
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
